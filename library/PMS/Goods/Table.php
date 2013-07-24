@@ -1,6 +1,6 @@
 <?php
 
-class PMS_GoodsTable extends OSDN_Db_Table_Abstract
+class PMS_Goods_Table extends OSDN_Db_Table_Abstract
 {
     /**
      * Table name

@@ -6,7 +6,7 @@ class Goods_IndexController extends OSDN_Controller_Action
 
 	public function init()
 	{
-		$this->_class = new PMS_Goods();
+		$this->_class = new PMS_Goods_Model();
 		parent::init();
 	}
 

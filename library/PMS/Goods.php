@@ -1,10 +1,10 @@
 <?php
 
-class PMS_Sales_Goods
+class PMS_Goods
 {
     public function __construct()
     {
-        $this->_table = new PMS_Sales_Goods_Table();
+        $this->_table = new PMS_GoodsTable();
     }
 
     public function add(array $params)

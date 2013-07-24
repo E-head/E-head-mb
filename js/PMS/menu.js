@@ -33,51 +33,38 @@ PMS.Menu = function(params) {
 	    autoEl: {
 	        tag: 'div',
 	        style: 'cursor: pointer;',
-	        qtip: 'арабика.com',
-	        cls: 'arabika-logo'
+	        qtip: 'mexicanburger.ru',
+	        cls: 'mb-logo'
 	    },
 	    listeners: {
 	        render: function(box) {
 	            box.el.on('click', function() {
-	                window.open('http://арабика.com/');
+	                window.open('http://mexicanburger.ru');
 	            })
 	        }
 	    }
 	}, ' ', ' ', '-', ' ', ' ', {
-	    text: 'Выручка',
+	    text: 'Заказы',
 	    iconCls: 'orders-icon',
 	    hidden: !acl.isView('orders'),
 	    handler: function() {
 	        PMS.System.Layout.getTabPanel().add({
-	            iconCls: 'archive-icon',
-	            xtype: 'PMS.Orderslog.List',
-	            id: 'PMS.Orderslog.List'
+	            iconCls: 'orders-icon',
+	            xtype: 'PMS.Orders.List',
+	            id: 'PMS.Orders.List'
 	        });
 	    }
 	}, {
-	    text: 'Реализация',
-	    iconCls: 'prod_schd-icon',
-        menu: [{
-            text: 'Продукция',
-            iconCls: 'work_schd-icon',
-            handler: function() {
-                PMS.System.Layout.getTabPanel().add({
-                    iconCls: 'work_schd-icon',
-                    xtype: 'PMS.Sales.Goods.List',
-                    id: 'PMS.Sales.Goods.List'
-                });
-            }
-        }, {
-            text: 'Расходные материалы',
-            iconCls: 'work_schd-icon',
-            handler: function() {
-                PMS.System.Layout.getTabPanel().add({
-                    iconCls: 'work_schd-icon',
-                    xtype: 'PMS.Sales.Expendables.List',
-                    id: 'PMS.Sales.Expendables.List'
-                });
-            }
-        }]
+        text: 'Товары',
+        iconCls: 'work_schd-icon',
+        handler: function() {
+            PMS.System.Layout.getTabPanel().add({
+                iconCls: 'work_schd-icon',
+                xtype: 'PMS.Goods.List',
+                id: 'PMS.Goods.List'
+            });
+        }
+    /*
 	}, {
 	    text: 'Склад',
 	    iconCls: 'suppliers-icon',
@@ -103,7 +90,6 @@ PMS.Menu = function(params) {
             });
         }
     }, {
-        /*
         text: 'Заявки на снабжение',
         iconCls: 'suppliers-icon',
         handler: PMS.menuMessage
@@ -115,7 +101,6 @@ PMS.Menu = function(params) {
             });
         }
 	}, {
-        */
 	    text: 'Кадры',
 	    iconCls: 'customers-icon',
         hidden: !acl.isView('staff'),
@@ -180,6 +165,7 @@ PMS.Menu = function(params) {
                  window.open(link('fixed-assets', 'report', 'index', {}, 'html'));
             }
         }]
+        */
     }, ' ', ' ', '-', '->', {
 		text: 'Менеджер доступа',
 		iconCls: 'accounts_manager-icon',

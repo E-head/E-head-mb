@@ -1,15 +1,12 @@
 <?php
 
-class Sales_ExpendablesController extends OSDN_Controller_Action
+class Goods_IndexController extends OSDN_Controller_Action
 {
-	/**
-	 * @var PMS_Sales_Expendables
-	 */
 	protected $_class;
 
 	public function init()
 	{
-		$this->_class = new PMS_Sales_Expendables();
+		$this->_class = new PMS_Goods();
 		parent::init();
 	}
 

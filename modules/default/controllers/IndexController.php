@@ -12,40 +12,11 @@ class IndexController extends OSDN_Controller_Action
      */
     public function indexAction()
     {
-        $assemble = new Zend_Session_Namespace('assemble');
 
         if (!OSDN_Accounts_Prototype::isAuthenticated()) {
-        	$assemble->path = $_SERVER['REQUEST_URI'];
             $this->_redirect('/index/login');
-        } elseif (isset($assemble->path)) {
-        	$path = $assemble->path;
-        	$assemble->unsetAll();
-        	$this->_redirect($path);
         }
 
-        // use for assemble
-        $id = $this->_getParam('id');
-        if (!empty($id)) {
-            $validate = new OSDN_Validate_Id();
-            if ($validate->isValid($id)) {
-                $this->view->addScriptPath(MODULES_DIR);
-                $this->view->id = $id;
-                $this->view->assemble = $this->view->render('/orders/views/scripts/index/assemble.phtml');
-            }
-        }
-
-        // Use for notifications. Get unread message id`s.
-        $messages = array();
-
-        $acl = OSDN_Accounts_Prototype::getAcl();
-        if ($acl->isAllowed(
-            OSDN_Acl_Resource_Generator::getInstance()->notice,
-            OSDN_Acl_Privilege::VIEW)
-        ) {
-            $notice = new PMS_Notice();
-            $messages = $notice->getUnreadMessages(OSDN_Accounts_Prototype::getId());
-        }
-        $this->view->messages = $messages;
     }
 
     public function changesAction()

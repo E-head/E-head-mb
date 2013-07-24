@@ -93,6 +93,7 @@ Ext.onReady(function(){
             })
         });
 
+        /*
         PMS.OrdersTab = PMS.System.Layout.getTabPanel().add({
             iconCls: 'orders-icon',
             closable: false,
@@ -100,7 +101,6 @@ Ext.onReady(function(){
             id: 'PMS.Orderslog.List'
         });
         
-        /*
         PMS.System.Layout.getTabPanel().add({
             iconCls: 'work_schd-icon',
             xtype: 'PMS.Sales.Goods.List',

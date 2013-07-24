@@ -7,10 +7,9 @@
     width: 75px;
 }
 
-.arabika-logo {
-    background-image: url('../images/arabika.png');
+.mb-logo {
+    background-image: url('../images/logo_mexicanburger_24x24.png');
     background-repeat: no-repeat;
-    background-position: 0 5px;
     height: 24px;
     width: 24px;
 }

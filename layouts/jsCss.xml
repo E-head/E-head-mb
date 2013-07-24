@@ -75,67 +75,7 @@
         
         <!-- Modules -->
         
-        <script src="/js/PMS/Orderslog/Form.js"/>
-        <script src="/js/PMS/Orderslog/List.js"/>
         
-        <script src="/js/PMS/Orderslog/DbfImport.js"/>
-        
-        <script src="/js/PMS/Sales/Expendables/List.js"/>
-        <script src="/js/PMS/Sales/Expendables/Form.js"/>
-        <script src="/js/PMS/Sales/Goods/List.js"/>
-        <script src="/js/PMS/Sales/Goods/Edit.js"/>
-        <script src="/js/PMS/Sales/Goods/Form.js"/>
-        <script src="/js/PMS/Sales/Goods/Ingredients.js"/>
-        
-        <script src="/js/PMS/FixedAssets/List.js"/>
-        <script src="/js/PMS/FixedAssets/Files.js"/>
-        <script src="/js/PMS/FixedAssets/Form.js"/>
-        
-        <script src="/js/PMS/Storage/Assets/Tree.js"/>
-        <script src="/js/PMS/Storage/Assets/List.js"/>
-        <script src="/js/PMS/Storage/Assets/Layout.js"/>
-        <script src="/js/PMS/Storage/Assets/Edit/Form.js"/>
-        <script src="/js/PMS/Storage/Assets/Edit/Tree.js"/>
-        <script src="/js/PMS/Storage/Assets/Edit/Layout.js"/>
-        <script src="/js/PMS/Storage/Assets/History.js"/>
-        <script src="/js/PMS/Storage/Assets/Movement.js"/>
-        
-        <script src="/js/PMS/Storage/Measures/ComboBox.js"/>
-        
-        <script src="/js/PMS/Storage/Requests/Form.js"/>
-        <script src="/js/PMS/Storage/Requests/List.js"/>
-        
-        <script src="/js/PMS/Reports/Orderslog.js"/>
-        <script src="/js/PMS/Reports/Managers.js"/>
-        <script src="/js/PMS/Reports/Staff.js"/>
-        <script src="/js/PMS/Reports/Vacations.js"/>
-        
-        <script src="/js/PMS/Notice/List.js"/>
-        <script src="/js/PMS/Notice/Form.js"/>
-        <script src="/js/PMS/Notice/DstPicker.js"/>
-        <script src="/js/PMS/Notice/DstInfo.js"/>
-        <script src="/js/PMS/Notice/Reader.js"/>
-      
-        <script src="/js/PMS/Staff/Combo.js"/>
-        <script src="/js/PMS/Staff/Info.js"/>
-        <script src="/js/PMS/Staff/Tree.js"/>
-        <script src="/js/PMS/Staff/List.js"/>
-        <script src="/js/PMS/Staff/Form.js"/>
-        <script src="/js/PMS/Staff/Layout.js"/>
-
-        <script src="/js/PMS/Staff/Vacations/Form.js"/>
-        <script src="/js/PMS/Staff/Vacations/List.js"/>
-        <script src="/js/PMS/Staff/Vacations/Layout.js"/>
-
-        <script src="/js/PMS/Staff/Payments/Form.js"/>
-        <script src="/js/PMS/Staff/Payments/List.js"/>
-        <script src="/js/PMS/Staff/Payments/Layout.js"/>
-        
-        <script src="/js/PMS/Staff/HR/Table.js"/>
-        <script src="/js/PMS/Staff/HR/Layout.js"/>
-        
-        <script src="/js/PMS/Customers/List.js"/>
-        <script src="/js/PMS/Customers/Form.js"/>
         
         <!-- Modules -->
         

@@ -1,0 +1,89 @@
+<?php
+    $PERIODS = array('hour' => 'Почасовая', 'day' => 'Подённая', 'month' => 'Cтавка')
+?>
+<center>
+<h3>
+    Отчёт о зарплате сотрудников за период
+    с <?
+        $date = @date_create($this->data['start']);
+        echo !$date ? '' : $date->format(OSDN_DATE_DISPLAY_FORMAT);
+    ?>
+    по <?
+        $date = @date_create($this->data['end']);
+        echo !$date ? '' : $date->format(OSDN_DATE_DISPLAY_FORMAT);
+    ?>
+</h3>
+
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr valign="bottom" align="center">
+        <td><b>№ п/п</b></td>
+        <td><b>Сотрудник</b></td>
+        <td><b>Должность</b></td>
+        <td><b>Текущая система оплаты</b></td>
+        <td><b>Текущий тариф (руб.)</b></td>
+        <td><b>Отработанных часов</b></td>
+        <td><b>Сумма оплаты (руб.)</b></td>
+        <td><b>Выплачено (руб.)</b></td>
+        <td><b>Остаток (руб.)</b></td>
+        <td><b>-</b></td>
+        <td><b>Всего часов</b></td>
+        <td><b>Общая сумма оплаты (руб.)</b></td>
+        <td><b>Общая сумма выплат (руб.)</b></td>
+        <td><b>Общий остаток (руб.)</b></td>
+    </tr>
+        <?php
+        $hoursTotal = 0;
+        $summTotal = 0;
+        $paysTotal = 0;
+        $restTotal = 0;
+        $hoursSuperTotal = 0;
+        $summSuperTotal = 0;
+        $paysSuperTotal = 0;
+        $restSuperTotal = 0;
+
+        $counter = 0;
+        foreach ($this->data['rows'] as $row) :?>
+            <tr>
+                <td><?=++$counter?></td>
+                <td><?=$row['name']?></td>
+                <td><?=$row['function']?></td>
+                <td><?=$PERIODS[$row['period']]?></td>
+                <td align="right"><?=$row['rate']?>,00</td>
+                <td align="right"><?=$row['hours_total']?></td>
+                <td align="right"><?=$row['summ_total']?>,00</td>
+                <td align="right"><?=$row['pays_total']?>,00</td>
+                <td align="right"><?=($row['summ_total'] - $row['pays_total'])?>,00</td>
+                <td><b>|</b></td>
+                <td align="right"><?=$row['hours_super_total']?></td>
+                <td align="right"><?=$row['summ_super_total']?>,00</td>
+                <td align="right"><?=$row['pays_super_total']?>,00</td>
+                <td align="right"><?=($row['summ_super_total'] - $row['pays_super_total'])?>,00</td>
+            </tr>
+        <?php
+        $hoursTotal = $hoursTotal + $row['hours_total'];
+        $summTotal = $summTotal + $row['summ_total'];
+        $paysTotal = $paysTotal + $row['pays_total'];
+        $restTotal = $restTotal + ($row['summ_total'] - $row['pays_total']);
+        $hoursSuperTotal = $hoursSuperTotal + $row['hours_super_total'];
+        $summSuperTotal = $summSuperTotal + $row['summ_super_total'];
+        $paysSuperTotal = $paysSuperTotal + $row['pays_super_total'];
+        $restSuperTotal = $restSuperTotal + ($row['summ_super_total'] - $row['pays_super_total']);
+        endforeach;?>
+    <tr><td colspan="5"><b>Итого:</b></td>
+        <td align="right"><b><?=$hoursTotal?></b>
+        <td align="right"><b><?=$summTotal?>,00</b>
+        <td align="right"><b><?=$paysTotal?>,00</b>
+        <td align="right"><b><?=$restTotal?>,00</b>
+        <td><b>-</b></td>
+        <td align="right"><b><?=$hoursSuperTotal?></b>
+        <td align="right"><b><?=$summSuperTotal?>,00</b>
+        <td align="right"><b><?=$paysSuperTotal?>,00</b>
+        <td align="right"><b><?=$restSuperTotal?>,00</b>
+    </td></tr>
+</table>
+
+</center>
+
+<pre>
+<?php //print_r($this->data);?>
+</pre>

@@ -1,0 +1,33 @@
+if ('object' != typeof xlib) {
+    xlib = {};
+}
+
+if ('object' != typeof xlib.Acl) {
+    xlib.Acl = {};
+}
+
+xlib.Acl.Storage = function() {
+
+    var permissions = <?=Zend_Json::encode($this->acl); ?> || [];
+    var privileges = <?=Zend_Json::encode($this->privileges); ?> || {};
+    var resources = <?=Zend_Json::encode($this->resources); ?> || {};
+    var workflowPermissions = <?=Zend_Json::encode($this->workflowPermissions); ?> || {};
+
+    return {
+        getPermissions: function() {
+            return permissions;
+        },
+
+        getResources: function() {
+            return resources;
+        },
+
+        getPrivileges: function() {
+            return privileges;
+        },
+
+        getWorkflowPermissions: function() {
+            return workflowPermissions;
+        }
+    };
+}();

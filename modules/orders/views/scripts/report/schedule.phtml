@@ -1,0 +1,36 @@
+<center><h3>
+План
+<?php if ($this->data['type'] == 'mount'): ?>
+    монтажных
+<?php elseif ($this->data['type'] == 'print'):?>
+    печатных
+<?php elseif ($this->data['type'] == 'production'):?>
+    производственных
+<?php endif;?>
+    работ на
+    <?=date_format($this->data['date'], 'd-m-Y');?>
+</h3></center>
+<?php foreach ($this->data['orders'] as $order) :?>
+    <div style="float: left; padding: 20px; height: 450px;">
+    <table cellspacing="0" cellpadding="5" border="1" width="300px">
+        <tr><td>Заказчик: <b><?=$order['customer_name']?></b></td></tr>
+        <tr><td>Адрес заказа: <b><?=$order['address']?></b></td></tr>
+        <tr valign="top"><td height="200px">Вид работ:</td></tr>
+        <tr><td>Ответственный: <b><?=$order['creator_name']?></b></td></tr>
+        <?php if ($this->data['type'] == 'mount'): ?>
+        <tr><td>
+            <br />
+            Автомобиль ________________________<br /><br />
+            Бригадир___________________________
+        </td></tr>
+        <?php elseif ($this->data['type'] == 'production'):?>
+        <tr><td><br />Участок №_________ Смена №________</td></tr>
+        <?php endif;?>
+    </table>
+    </div>
+<?php endforeach;?>
+<div style="clear: both;">
+<pre>
+<?php //print_r($this->data['orders']);?>
+<?php //print_r($this->data['debug']);?>
+</pre>

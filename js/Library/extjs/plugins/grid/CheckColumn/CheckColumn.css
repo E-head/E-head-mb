@@ -1,0 +1,7 @@
+.grid-check-column-disabled {-moz-opacity:0.5;opacity:.50;filter:alpha(opacity=50);background-color:#CCC;}
+.grid-check-column-disabled-yellow {-moz-opacity:0.5;opacity:.50;filter:alpha(opacity=50);background-color:#FFE25F!important;}
+.grid-check-column-disabled-green {-moz-opacity:0.5;opacity:.50;filter:alpha(opacity=50);background-color:#009F16!important;}
+.grid-check-column-green {background-color:#009F16!important;}
+.grid-check-column-yellow {background-color:#FFE25F!important;}
+.grid-check-column-disabled-gray {-moz-opacity:0.5;opacity:.50;filter:alpha(opacity=50);background-color:#777777!important;}
+.grid-check-column-gray {background-color:#d3d3d3!important;}

@@ -1,0 +1,118 @@
+<style>
+body {
+    font-size: 10pt;
+}
+
+.late:after {
+    content: "!";
+    font-weight: 700;
+    color: white;
+}
+
+.planning_production {
+    border-color: white !important;
+    background-color: #33CCCC;
+}
+
+.planning_print {
+    border-color: white !important;
+    background-color: #CC33CC;
+}
+
+.planning_mount {
+    border-color: white !important;
+    background-color: red;
+}
+
+.day {
+    border-color: black;
+}
+
+.day-off {
+    border-color: black;
+    border-style: dashed;
+}
+
+.day-off-title {
+    color: red;
+    border-style: dashed;
+}
+
+.today-title {
+    background-color: #DDD;
+}
+.header {
+    font-weight: 700;
+    text-align: center;
+    border: 0;
+}
+</style>
+<center>
+<h3>Сводный план работ на <?=$this->data['date']?></h3>
+</center>
+<?php
+    $date = new Zend_Date();
+    $today = $date->toValue(Zend_Date::DAY_SHORT);
+?>
+<table cellspacing="0" cellpadding="5" border="1">
+    <?php foreach ($this->data['data'] as $monthNumber => $month) :?>
+        <tr><td colspan="100" class="header"><?=$month['title']; ?></td></tr>
+        <tr valign="bottom">
+            <td><b>№</b></td>
+            <td><b>Заказчик</b></td>
+            <td><b>Адрес работ</b></td>
+            <td><b>Менеджер</b></td>
+            <?php foreach ($month['days'] as $number => $day) :?>
+                <td align="center" class="<?
+                       switch($day) {
+                           case 'Сб':
+                           case 'Вс':
+                               echo 'day-off-title ';
+                               break;
+                           default:
+                               echo ' ';
+                       }
+                       echo $number == $today ? 'today-title' : '';
+                       ?>">
+                    <?=$day?><br/><b><?=$number?></b>
+                </td>
+            <?php endforeach;?>
+        </tr>
+		<?php foreach ($month['orders'] as $order) :?>
+	        <tr class="row">
+                <td><?=$order['id']?></td>
+                <td><nobr><?=$order['customer_name']?></nobr></td>
+                <td><nobr><?=$order['address']?></nobr></td>
+                <td><nobr><?=$order['creator_name']?></nobr></td>
+                <?php foreach ($order['days'] as $number => $day) :?>
+	                <td align="center" class="<?
+	                   switch($month['days'][$number]) {
+	                       case 'Сб':
+                           case 'Вс':
+                               echo !empty($day) ? 'day-off '  . $day : 'day';
+                               break;
+                           default:
+                               echo 'day ' . $day;
+	                   }
+                       ?>">
+                    </td>
+                <?php endforeach;?>
+           </tr>
+		<?php endforeach;?>
+<?php endforeach;?>
+</table><br/><br/>
+
+<table cellspacing="0" cellpadding="5" border="1" style="border: none;">
+    <tr>
+        <td class="planning_production" style="width: 20px;"></td>
+        <td style="border: none;">- производство</td>
+        <td class="planning_print" style="width: 20px;"></td>
+        <td style="border: none;">- печать</td>
+        <td class="planning_mount" style="width: 20px;"></td>
+        <td style="border: none;">- монтаж</td>
+    </tr>
+</table>
+
+<pre>
+<?php //var_dump($this->data);?>
+</pre>

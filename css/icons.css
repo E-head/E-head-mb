@@ -1,0 +1,46 @@
+.settings {
+    background-image:url(/images/folder_wrench.png) !important;
+}
+.user {
+    background-image:url(/images/user.png) !important;
+}
+.reply {
+    background-image:url(/images/user_comment.png) !important;
+}
+.delete {
+    background-image:url(/images/delete.gif) !important;
+}
+.add {
+    background-image:url(/images/add.gif) !important;
+}
+.edit {
+    background-image:url(/images/cog_edit.png) !important;
+}
+.check-box-checked {
+	width: 19px; 
+	height: 16px;
+	background-repeat: no-repeat;
+    background-image:url(/images/checkboxChecked.gif) !important;
+}
+.check-box-unchecked {
+	width: 19px; 
+	height: 16px;
+	background-repeat: no-repeat;
+    background-image:url(/images/checkboxUnchecked.gif) !important;
+}
+
+.details {
+    background-image:url(/images/details.gif) !important;
+}
+.check-in {
+    background-image:url(/images/check-in_16x16.gif) !important;
+    background-repeat: no-repeat;
+}
+.check-out {
+    background-image:url(/images/check-out_16x16.gif) !important;
+    background-repeat: no-repeat;
+}
+
+.info-icon {
+    background-image:url(/images/information-balloon.png) !important;
+}

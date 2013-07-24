@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="<?=$this->baseUrl(); ?>/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="<?=$this->baseUrl(); ?>/images/favicon.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" href="/js/Library/xlib/LoadingMask.css" />
+    <?=$this->IncludeCss($this->layoutPath . '/jsCss.xml');?>
+</head>
+<body>
+    <script src="/js/Library/xlib/LoadingMask.js"></script>
+    <script type="text/javascript">
+        DEBUG = <?=$this->debug ? 'true' : 'false'; ?>;
+        xlib.LoadingMask.show();
+    </script>
+    <script src="/default/config/get-permissions" ></script>
+	<?=$this->IncludeJs($this->layoutPath . '/jsCss.xml'); ?>
+    <?php if ($this->assemble): ?>
+        <script type="text/javascript">
+        	xlib.onReady(function() {
+                try {
+                    <?=$this->assemble . "\n"; ?>
+                } catch(e) {
+                	xlib.Msg.error('Ошибка запроса');
+                }
+            }, 99);
+        </script>
+    <?php endif; ?>
+
+    <?php echo $this->layout()->content; ?>
+	</body>
+</html>

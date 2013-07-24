@@ -1,0 +1,5 @@
+#digest
+admin:Please login for changing site configuration:98da5cf7ee42c9ed72ca47429f326c92
+
+#simple
+admin:XML-RPC authentication:wramu9hE

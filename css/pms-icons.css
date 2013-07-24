@@ -1,0 +1,36 @@
+.chat-big-button .x-btn-text {
+    width: 55px !important;
+    height: 55px !important;
+    background: url(/images/Chat-48x48.png) no-repeat left center !important;
+}
+
+.orders-icon {
+    background: url(/images/preview-bottom.gif) no-repeat left center !important;
+}
+.archive-icon {
+   background: url(/images/folder_wrench.png) no-repeat left center !important;
+}
+.customers-icon {
+    background: url(/images/teachers.png) no-repeat left center !important;
+}
+.suppliers-icon {
+    background: url(/images/teachers.png) no-repeat left center !important;
+}
+.accounts_manager-icon {
+    background: url(/images/acl.gif) no-repeat left center !important;
+}
+.prod_schd-icon {
+    background: url(/images/preview-bottom.gif) no-repeat left center !important;
+}
+.mount_schd-icon {
+    background: url(/images/preview-bottom.gif) no-repeat left center !important;
+}
+.work_schd-icon {
+    background: url(/images/preview-bottom.gif) no-repeat left center !important;
+}
+.exit-icon {
+   background: url(/images/exit_16x16.png) no-repeat !important;
+}
+.filter-icon {
+   background: url(/images/folder_wrench.png) no-repeat !important;
+}

@@ -1,0 +1,20 @@
+<pre>
+<?php //print_r($this->data); die();?>
+</pre>
+
+<center>
+<h3>Список клиентов</h3>
+
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr valign="bottom" align="center">
+        <td><b>Наименование</b></td>
+        <td><b>Описание</td>
+    </tr>
+        <?php foreach ($this->data as $row) :?>
+            <tr>
+                <td><?=$row['name']?></td>
+                <td><?=$row['description']?></td>
+            </tr>
+        <?php endforeach;?>
+</table>
+</center>

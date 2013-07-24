@@ -1,0 +1,42 @@
+<center>
+<h3>
+    Отчёт по основным средствам состоянием на
+    <?
+        $date = new Zend_Date();
+        echo $date->__toString(OSDN_DATE_TIME_FORMAT);
+        $summTotal = 0;
+    ?>
+</h3>
+
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr valign="bottom" align="center">
+        <td><b>№</b></td>
+        <td><b>Инвентарный&nbsp;№</b></td>
+        <td><b>Наименование</b></td>
+        <td><b>Ответственный</b></td>
+        <td><b>Файлов</b></td>
+        <td><b>Количество</b></td>
+        <td><b>Стоимость&nbsp;(руб.)</b></td>
+    </tr>
+        <?php foreach ($this->data as $row) :?>
+            <tr>
+                <td><?=$row['id']?></td>
+                <td><?=$row['inventory_number']?></td>
+                <td><?=$row['name']?></td>
+                <td><?=$row['staff_name']?></td>
+                <td align="right"><?=$row['files']?></td>
+                <td align="right"><?=$row['qty']?></td>
+                <td align="right"><?=$row['price']?></td>
+            </tr>
+        <?php $summTotal += $row['price'];
+        endforeach;?>
+    <tr><td colspan="6"><b>Итого:</b></td>
+        <td align="right"><b><?=$summTotal?></b>
+    </td></tr>
+</table>
+
+</center>
+
+<pre>
+<?php //print_r($this->data); ?>
+</pre>

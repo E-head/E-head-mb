@@ -1,0 +1,49 @@
+<center>
+<h3>
+    Отчёт по выручке за период
+    с <?
+        $date = @date_create($this->data['start']);
+        echo !$date ? '' : $date->format(OSDN_DATE_DISPLAY_FORMAT);
+    ?>
+    по <?
+        $date = @date_create($this->data['end']);
+        echo !$date ? '' : $date->format(OSDN_DATE_DISPLAY_FORMAT);
+    ?>
+</h3>
+
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr valign="bottom" align="center">
+        <td><b>Дата</b></td>
+        <td><b>Ответственный сотрудник</b></td>
+        <td><b>Остаток в кассе на начало дня</b></td>
+        <td><b>Сумма выручки за день</b></td>
+        <td><b>Сумма инкассации</b></td>
+        <td><b>Назначение инкассации</b></td>
+        <td><b>Остаток в кассе на конец дня</b></td>
+    </tr>
+        <?php
+        $total = 0;
+        foreach ($this->data['rows'] as $row):
+            $total += $row['summ_income'];
+        ?>
+            <tr>
+                <td><?=$row['date']?></td>
+                <td><?=$row['staff_name']?></td>
+                <td align="right"><?=number_format($row['summ_start'],2,'.',' ')?></td>
+                <td align="right"><?=number_format($row['summ_income'],2,'.',' ')?></td>
+                <td align="right"><?=number_format($row['summ_inkasso'],2,'.',' ')?></td>
+                <td><?=$row['inkasso_dst']?></td>
+                <td align="right"><?=number_format($row['summ_rest'],2,'.',' ')?></td>
+            </tr>
+        <?php endforeach; ?>
+    <tr><td colspan="7">&nbsp;</td></tr>
+    <tr><td colspan="6"><b>Общая сумма выручки за период:</b></td>
+        <td align="right"><b><?=number_format($total,2,'.',' ')?></b>
+    </td></tr>
+</table>
+
+</center>
+
+<pre>
+<?php //print_r($this->data);?>
+</pre>

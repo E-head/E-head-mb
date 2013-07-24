@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+
+.e-head-logo {
+    background-image: url('../images/e-head-logo.png');
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 75px;
+}
+
+.arabika-logo {
+    background-image: url('../images/arabika.png');
+    background-repeat: no-repeat;
+    background-position: 0 5px;
+    height: 24px;
+    width: 24px;
+}
+
+.x-row-expired {
+    background: #FFFF99;
+}
+.x-row-success {
+    background: #99FF99;
+}
+.x-row-error {
+    background: #FF9999;
+}
+
+.x-border-top {
+    border-top: 1px solid #99BBE8 !important;
+}
+
+.x-border-bottom {
+    border-bottom: 1px solid #99BBE8 !important;
+}
+
+.x-border-left {
+    border-left: 1px solid #99BBE8 !important;
+}
+
+.x-border-right {
+    border-right: 1px solid #99BBE8 !important;
+}
+
+.x-grid3-hd-row td.ux-filtered-column {   
+    font-style: italic;  
+    font-weight: bold;
+}
+
+.x-tab-strip .yellow-notes .x-tab-right,
+.x-tab-strip .yellow-notes .x-tab-left,
+.x-tab-strip .yellow-notes .x-tab-strip-inner {
+    background-image: url(../images/tabs-sprite-yellow.gif);
+}
+
+.x-tab-strip .yellow-notes a.x-tab-strip-close {
+    background-image: url(../images/tab-close-yellow.gif) !important;
+}
+
+/*for multiple calendar*/
+.x-date-right, .x-date-left {
+    height:16px;
+}
+
+.x-date-right a {
+    float:right;
+} 
+
+.x-form-field-dirty {
+    background: #FEFFBF !important;
+}
+
+/*for make visual hours in calendar (week planning)*/
+.x-date-inner .x-date-planned-1 a {
+    background:#ccfbaf !important;
+}
+.x-date-inner .x-date-planned-2 a {
+    background:#9ef46a !important;
+}
+.x-date-inner .x-date-planned-3 a {
+    background:#56d907 !important;
+}
+.msg .x-box-mc {
+    font-size:14px;
+}
+#msg-div {
+    position:absolute;
+    left:35%;
+    top:10px;
+    width:250px;
+    z-index:20000;
+}
+
+.x-hide-absoluteoffsets {
+	position: absolute;
+	left:-1000px;
+	top:-1000px;
+	visibility: visible;
+	display: block;
+}
+
+.x-form-warning-icon {
+    width: 16px;
+    height: 18px;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    background: transparent url(../images/warning.gif) no-repeat 0 2px;
+}
+
+.x-small-editor .x-form-text {
+	vertical-align: top !important;
+}
+
+div.search-item {
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	padding: 3px 10px 3px 10px;
+	border-bottom: 1px solid #eeeeee;
+}

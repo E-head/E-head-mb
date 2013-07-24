@@ -1,0 +1,150 @@
+<xml>
+    <data>
+        <style href="/js/Library/extjs/framework/resources/css/ext-all.css"/>
+        <script src="/js/Library/extjs/framework/adapter/ext/ext-base.js"/>
+        <script src="/js/Library/extjs/framework/ext-all.js"/>
+        
+        <style href="/css/new-pms-icons.css"/>
+        <style href="/css/icons.css"/>
+        <style href="/css/system.css"/>
+        
+        <script src="/js/Library/xlib/xlib.js"/>
+
+        <!-- Ext Plugins -->
+        <style href="/js/Library/extjs/plugins/grid/CheckColumn/CheckColumn.css"/>
+        <script src="/js/Library/extjs/plugins/grid/CheckColumn/CheckColumn.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/menu/EditableItem.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/menu/RangeMenu.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/GridFilters.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/Filter.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/StringFilter.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/DateFilter.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/ListFilter.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/NumericFilter.js"/>
+        <script src="/js/Library/extjs/plugins/grid/GridFiltering/filter/BooleanFilter.js"/>
+        <style href="/js/Library/extjs/plugins/tree/ColumnTree/column-tree.css"/>
+        <script src="/js/Library/extjs/plugins/tree/ColumnTree/ColumnNodeUI.js"/>
+        <script src="/js/Library/extjs/plugins/pPageSize.js"/>
+        <script src="/js/Library/extjs/plugins/DataTip.js"/>
+        <style href="/js/Library/extjs/plugins/DataView/data-view.css"/>
+        <script src="/js/Library/extjs/plugins/DataView/data-view-plugins.js"/>
+        <!-- Ext Plugins -->
+        
+        <!-- Ext ux -->
+        <style href="/js/Library/extjs/ux/UploadDialog/UploadDialog.css"/>
+        <script src="/js/Library/extjs/ux/UploadDialog/UploadDialog.js"/>
+        
+        <style href="/js/Library/extjs/ux/form/FileUploadField.css"/>
+        <script src="/js/Library/extjs/ux/form/FileUploadField.js"/>
+        <!-- Ext ux -->
+        
+		<!-- ================ xlib ================ -->
+        
+        <!-- Plugins -->
+        <script src="/js/Library/xlib/grid/Actions.js"/>
+        <script src="/js/Library/xlib/grid/CheckColumn.js"/>
+        <!-- Plugins -->
+        
+        <style href="/js/Library/xlib/Legend/Item.css"/>
+        <script src="/js/Library/xlib/Legend/Item.js"/>
+        <script src="/js/Library/xlib/Legend/Plugin.js"/>
+        <script src="/js/Library/xlib/form/FormPanel.js"/>
+        <script src="/js/Library/xlib/form/ComboBox.js"/>
+        <style href="/js/Library/xlib/form/ComboTrigger.css"/>
+        <script src="/js/Library/xlib/form/ComboTrigger.js"/>
+        <script src="/js/Library/xlib/form/DateField.js"/>
+        <script src="/js/Library/xlib/form/SearchField.js"/>
+        <script src="/js/Library/xlib/TreePanel.js"/>
+        <script src="/js/Library/xlib/PagingToolbar.js"/>
+        <script src="/js/Library/xlib/Msg.js"/>
+        <script src="/js/Library/xlib/Layout.js"/>
+		
+        <!-- Widgets -->
+        <script src="/js/Library/xlib/Acl/Manager.js"/>
+        <script src="/js/Library/xlib/Acl/Permission/Tree.js"/>
+        <script src="/js/Library/xlib/Acl/Permission/TreeManager.js"/>
+        <script src="/js/Library/xlib/Acl/Accounts/Form.js"/>
+        <script src="/js/Library/xlib/Acl/Accounts/List.js"/>
+        <script src="/js/Library/xlib/Acl/Accounts/Combo.js"/>
+        <script src="/js/Library/xlib/Acl/Roles/Tree.js"/>
+        <script src="/js/Library/xlib/Acl/Layout.js"/>
+        <!-- Widgets -->
+        
+		<!-- ================ xlib ================ -->
+ 
+        
+        <!-- Modules -->
+        
+        <script src="/js/PMS/Orderslog/Form.js"/>
+        <script src="/js/PMS/Orderslog/List.js"/>
+        
+        <script src="/js/PMS/Orderslog/DbfImport.js"/>
+        
+        <script src="/js/PMS/Sales/Expendables/List.js"/>
+        <script src="/js/PMS/Sales/Expendables/Form.js"/>
+        <script src="/js/PMS/Sales/Goods/List.js"/>
+        <script src="/js/PMS/Sales/Goods/Edit.js"/>
+        <script src="/js/PMS/Sales/Goods/Form.js"/>
+        <script src="/js/PMS/Sales/Goods/Ingredients.js"/>
+        
+        <script src="/js/PMS/FixedAssets/List.js"/>
+        <script src="/js/PMS/FixedAssets/Files.js"/>
+        <script src="/js/PMS/FixedAssets/Form.js"/>
+        
+        <script src="/js/PMS/Storage/Assets/Tree.js"/>
+        <script src="/js/PMS/Storage/Assets/List.js"/>
+        <script src="/js/PMS/Storage/Assets/Layout.js"/>
+        <script src="/js/PMS/Storage/Assets/Edit/Form.js"/>
+        <script src="/js/PMS/Storage/Assets/Edit/Tree.js"/>
+        <script src="/js/PMS/Storage/Assets/Edit/Layout.js"/>
+        <script src="/js/PMS/Storage/Assets/History.js"/>
+        <script src="/js/PMS/Storage/Assets/Movement.js"/>
+        
+        <script src="/js/PMS/Storage/Measures/ComboBox.js"/>
+        
+        <script src="/js/PMS/Storage/Requests/Form.js"/>
+        <script src="/js/PMS/Storage/Requests/List.js"/>
+        
+        <script src="/js/PMS/Reports/Orderslog.js"/>
+        <script src="/js/PMS/Reports/Managers.js"/>
+        <script src="/js/PMS/Reports/Staff.js"/>
+        <script src="/js/PMS/Reports/Vacations.js"/>
+        
+        <script src="/js/PMS/Notice/List.js"/>
+        <script src="/js/PMS/Notice/Form.js"/>
+        <script src="/js/PMS/Notice/DstPicker.js"/>
+        <script src="/js/PMS/Notice/DstInfo.js"/>
+        <script src="/js/PMS/Notice/Reader.js"/>
+      
+        <script src="/js/PMS/Staff/Combo.js"/>
+        <script src="/js/PMS/Staff/Info.js"/>
+        <script src="/js/PMS/Staff/Tree.js"/>
+        <script src="/js/PMS/Staff/List.js"/>
+        <script src="/js/PMS/Staff/Form.js"/>
+        <script src="/js/PMS/Staff/Layout.js"/>
+
+        <script src="/js/PMS/Staff/Vacations/Form.js"/>
+        <script src="/js/PMS/Staff/Vacations/List.js"/>
+        <script src="/js/PMS/Staff/Vacations/Layout.js"/>
+
+        <script src="/js/PMS/Staff/Payments/Form.js"/>
+        <script src="/js/PMS/Staff/Payments/List.js"/>
+        <script src="/js/PMS/Staff/Payments/Layout.js"/>
+        
+        <script src="/js/PMS/Staff/HR/Table.js"/>
+        <script src="/js/PMS/Staff/HR/Layout.js"/>
+        
+        <script src="/js/PMS/Customers/List.js"/>
+        <script src="/js/PMS/Customers/Form.js"/>
+        
+        <!-- Modules -->
+        
+        <script src="/js/PMS/menu.js"/>
+        <script src="/js/extensions.js"/>
+        <script src="/js/start.js"/>
+        
+        <!-- localization files -->
+        <script src="/js/Library/extjs/framework/ext-lang-ru.js"/>
+        <!-- localization files -->
+    </data>
+</xml>

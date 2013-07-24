@@ -1,0 +1,8 @@
+<form action="<?=$this->host?>" method="post" id="map-form">
+<input type="hidden" name="log_in" value="1" />
+<input type="hidden" name="login" value="<?=$this->login?>" />
+<input type="hidden" name="password" value="<?=$this->password?>" />
+</form>
+<script type="text/javascript">
+document.getElementById('map-form').submit();
+</script>

@@ -1,0 +1,43 @@
+<center>
+<h3>
+    Отчёт по ТМЦ на складе состоянием на
+    <?
+        $date = new Zend_Date();
+        echo $date->__toString(OSDN_DATE_TIME_FORMAT);
+        $summTotal = 0;
+    ?>
+</h3>
+
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr valign="bottom" align="center">
+        <td><b>№</b></td>
+        <td><b>Наименование</b></td>
+        <td><b>Ед. изм.</b></td>
+        <td><b>Количество на складе</b></td>
+        <td><b>Цена (руб.)</b></td>
+        <td><b>Сумма (руб.)</b></td>
+    </tr>
+        <?php
+            foreach ($this->data as $row) :
+            $summ = $row['unit_price'] * $row['qty'];
+        ?>
+            <tr>
+                <td><?=$row['id']?></td>
+                <td><?=$row['name']?></td>
+                <td><?=$row['measure']?></td>
+                <td align="right"><?=$row['qty']?></td>
+                <td align="right"><?=$row['unit_price']?></td>
+                <td align="right"><?=$summ?></td>
+            </tr>
+        <?php $summTotal += $summ;
+        endforeach;?>
+    <tr><td colspan="5"><b>Итого:</b></td>
+        <td align="right"><b><?=$summTotal?></b>
+    </td></tr>
+</table>
+
+</center>
+
+<pre>
+<?php //print_r($this->data); ?>
+</pre>

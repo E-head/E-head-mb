@@ -1,0 +1,114 @@
+<style>
+body {
+    font-size: 10pt;
+}
+
+.day-off {
+    border-color: black;
+    border-style: dashed;
+}
+
+.day-off-title {
+    color: red;
+    border-style: dashed;
+}
+
+.today-title {
+    background-color: #DDD;
+}
+
+.mark {
+    border-color: white !important;
+    background-color: red;
+}
+</style>
+<center>
+<h3>
+    План отпусков сотрудников за период
+    с <?
+        $startdate = new Zend_Date($this->data['start']);
+        echo $startdate->get(Zend_Date::DATES);
+    ?>
+    по <?
+        $enddate = new Zend_Date($this->data['end']);
+        echo $enddate->get(Zend_Date::DATES);
+    ?>
+</h3>
+</center>
+
+<table cellspacing="0" cellpadding="5" border="1" width="100%">
+    <tr>
+        <td rowspan="2"><b>Сотрудник</b></td>
+        <td rowspan="2"><b>Должность</b></td>
+        <?php
+            $date = new Zend_Date($this->data['start']);
+            while ($date <= $enddate):
+            $days = $date->get(Zend_Date::MONTH) == $startdate->get(Zend_Date::MONTH) ?
+                $date->get(Zend_Date::MONTH_DAYS) - $date->get(Zend_Date::DAY) + 1 :
+                $date->get(Zend_Date::MONTH_DAYS);
+        ?>
+            <td align="center" colspan="<?=$days?>"><b>Даты
+                <?=$date->get(Zend_Date::MONTH_NAME);?>
+                <?=$date->get(Zend_Date::YEAR);?></b>
+            </td>
+        <?php
+            $date = $date->addMonth(1)->setDay(1);
+            endwhile;
+        ?>
+    </tr>
+    <tr>
+        <?php
+            $date = new Zend_Date($this->data['start']);
+            while ($date <= $enddate):
+            $day = $date->get(Zend_Date::WEEKDAY_NAME);
+        ?>
+            <td align="center" class="<?
+                   switch($day) {
+                       case 'Сб':
+                       case 'Вс':
+                           echo 'day-off-title ';
+                           break;
+                       default:
+                           echo ' ';
+                   }
+                   echo $date->isToday() ? 'today-title' : '';
+                   ?>">
+                <b>
+                    <?=$date->get(Zend_Date::DAY);?>
+                    <br />
+                    <?=$day;?>
+                </b>
+            </td>
+        <?php
+            $date->addDay(1);
+            endwhile;
+        ?>
+    </tr>
+    <?php foreach ($this->data['rows'] as $row) :?>
+        <tr>
+            <td><?=$row['name']?></td>
+            <td><?=$row['function']?></td>
+            <?php
+                $date = new Zend_Date($this->data['start']);
+                while ($date <= $enddate):
+                    $class = '';
+                    foreach ($row['periods'] as $period) {
+                        if ($date->isLater($period['from'])
+                        && $date->isEarlier($period['to'])) {
+                            $class = 'mark';
+                            break;
+                        }
+                    }
+            ?>
+                <td class="<?=$class?>"></td>
+            <?php
+                $date->addDay(1);
+                endwhile;
+            ?>
+        </tr>
+    <?php endforeach;?>
+</table>
+
+<pre>
+<?php //print_r($this->data);?>
+</pre>

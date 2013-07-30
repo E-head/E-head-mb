@@ -18,6 +18,7 @@ class Orders_IndexController extends OSDN_Controller_Action
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'add');
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'update');
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'delete');
+        $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'close');
     }
 
 	public function getListAction()
@@ -32,24 +33,12 @@ class Orders_IndexController extends OSDN_Controller_Action
     	}
     }
 
-    public function getAction()
-    {
-    	$response = $this->_class->get($this->_getParam('id'));
-    	if ($response->isSuccess()) {
-    	    $this->view->success = true;
-    	    $this->view->data = $response->getRow();
-    	} else {
-    	   $this->_collectErrors($response);
-    	}
-    }
-
     public function addAction()
     {
         $response = $this->_class->add($this->_getAllParams());
         if ($response->isSuccess()) {
             $this->view->success = true;
             $this->view->id = $response->id;
-            $this->sendEmailOrderProcessed('added', $response->id);
         } else {
            $this->_collectErrors($response);
         }
@@ -60,11 +49,7 @@ class Orders_IndexController extends OSDN_Controller_Action
     	$data = $this->_getAllParams();
         $response = $this->_class->update($data);
         if ($response->isSuccess()) {
-        	if (empty($data['success_date_fact'])) {
-                $this->sendEmailOrderProcessed('updated', $this->_getParam('id'));
-        	} else {
-        		$this->sendEmailOrderSuccess($this->_getParam('id'));
-        	}
+    		$this->sendEmail($this->_getParam('id'));
             $this->view->success = true;
         } else {
            $this->_collectErrors($response);
@@ -81,6 +66,16 @@ class Orders_IndexController extends OSDN_Controller_Action
         }
     }
 
+    public function closeAction()
+    {
+        $response = $this->_class->close($this->_getParam('id'));
+        if ($response->isSuccess()) {
+            $this->view->success = true;
+        } else {
+           $this->_collectErrors($response);
+        }
+    }
+
     /*
      * =========================================================================
      *
@@ -88,11 +83,11 @@ class Orders_IndexController extends OSDN_Controller_Action
      *
      * =========================================================================
      */
-    private function sendEmailOrderSuccess($orderId)
+    private function sendEmail($orderId)
     {
     	$accounts = new OSDN_Accounts();
     	$roles = new OSDN_Acl_Roles();
-    	$roleId = $roles->alias2id('bookkeeper');
+    	$roleId = $roles->alias2id('admin');
     	if ($roleId) {
         	$response = $accounts->fetchByRole($roleId);
         	if ($response->isSuccess()) {
@@ -104,8 +99,8 @@ class Orders_IndexController extends OSDN_Controller_Action
                     $mail->addTo($row['email'], $row['name']);
         		}
     	        $mail->setFrom($config->mail->from->address, $config->mail->from->caption);
-    	        $mail->setSubject("Выполнен заказ №$orderId");
-    	        $mail->setBodyHtml("Подробности здесь: http://$server/?id=$orderId");
+    	        $mail->setSubject("Добавлен заказ №$orderId на $server");
+    	        $mail->setBodyHtml("");
     	        try {
     	            @$mail->send();
     	        } catch (Exception $e) {

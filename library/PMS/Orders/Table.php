@@ -9,6 +9,6 @@ class PMS_Orders_Table extends OSDN_Db_Table_Abstract
      */
     protected $_name = 'orders';
 
-    protected $_nullableFields = array();
+    protected $_nullableFields = array('ondate', 'closed');
 
 }

@@ -44,17 +44,6 @@ PMS.Menu = function(params) {
 	        }
 	    }
 	}, ' ', ' ', '-', ' ', ' ', {
-	    text: 'Заказы',
-	    iconCls: 'orders-icon',
-	    hidden: !acl.isView('orders'),
-	    handler: function() {
-	        PMS.System.Layout.getTabPanel().add({
-	            iconCls: 'orders-icon',
-	            xtype: 'PMS.Orders.List',
-	            id: 'PMS.Orders.List'
-	        });
-	    }
-	}, {
         text: 'Товары',
         iconCls: 'work_schd-icon',
         handler: function() {
@@ -64,109 +53,7 @@ PMS.Menu = function(params) {
                 id: 'PMS.Goods.List'
             });
         }
-    /*
-	}, {
-	    text: 'Склад',
-	    iconCls: 'suppliers-icon',
-        hidden: !acl.isView('storage'),
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                iconCls: 'suppliers-icon',
-                xtype: 'PMS.Storage.Assets.Layout',
-                id: 'PMS.Storage.Assets.Layout'
-            });
-        }
-    }, {
-        text: 'Поставщики',
-        hidden: !acl.isView('customers'),
-        iconCls: 'customers-icon',
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                title: 'Поставщики',
-                iconCls: 'customers-icon',
-                entity: 'customers',
-                xtype: 'PMS.Customers.List',
-                id: 'PMS.Customers.List'
-            });
-        }
-    }, {
-        text: 'Заявки на снабжение',
-        iconCls: 'suppliers-icon',
-        handler: PMS.menuMessage
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                iconCls: 'suppliers-icon',
-                xtype: 'PMS.Storage.Requests.List',
-                id: 'PMS.Storage.Requests.List'
-            });
-        }
-	}, {
-	    text: 'Кадры',
-	    iconCls: 'customers-icon',
-        hidden: !acl.isView('staff'),
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                iconCls: 'customers-icon',
-                xtype: 'PMS.Staff.Layout',
-                id: 'PMS.Staff.Layout'
-            });
-        } 
-	}, {
-        text: 'Основные средства',
-        iconCls: 'archive-icon',
-        hidden: !acl.isView('admin'),
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                iconCls: 'archive-icon',
-                xtype: 'PMS.FixedAssets.List',
-                id: 'PMS.FixedAssets.List'
-            });
-        }
-    }, {
-        text: 'Приказы и объявления',
-        iconCls: 'work_schd-icon',
-        hidden: !acl.isView('notice'),
-        handler: function() {
-            PMS.System.Layout.getTabPanel().add({
-                iconCls: 'work_schd-icon',
-                xtype: 'PMS.Notice.List',
-                id: 'PMS.Notice.List'
-            });
-        } 
-	}, {
-	    text: 'Отчёты',
-	    iconCls: 'prod_schd-icon',
-        menu: [{
-            text: 'Выручка',
-            iconCls: 'work_schd-icon',
-            hidden: !acl.isView('reports'),
-            handler: function() {
-                new PMS.Reports.Orderslog();
-            }
-        }, {
-            text: 'Склад',
-            iconCls: 'work_schd-icon',
-            hidden: !acl.isView('storage'),
-            handler: function() {
-                 window.open(link('storage', 'report', 'index', {}, 'html'));
-            }
-        }, {
-            text: 'Кадры',
-            iconCls: 'work_schd-icon',
-            hidden: !acl.isView('staff'),
-            handler: function() {
-                new PMS.Reports.Staff();
-            }
-        }, {
-            text: 'Основные средства',
-            iconCls: 'work_schd-icon',
-            hidden: !acl.isView('admin'),
-            handler: function() {
-                 window.open(link('fixed-assets', 'report', 'index', {}, 'html'));
-            }
-        }]
-        */
-    }, ' ', ' ', '-', '->', {
+    }, '->', {
 		text: 'Менеджер доступа',
 		iconCls: 'accounts_manager-icon',
 		hidden: !acl.isView('admin'),

@@ -75,7 +75,11 @@
         
         <!-- Modules -->
         
-        
+        <script src="/js/PMS/Orders/Goods.js"/>
+        <script src="/js/PMS/Orders/List.js"/>
+        <script src="/js/PMS/Orders/Form.js"/>
+        <script src="/js/PMS/Goods/List.js"/>
+        <script src="/js/PMS/Goods/Form.js"/>
         
         <!-- Modules -->
         

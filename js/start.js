@@ -93,27 +93,13 @@ Ext.onReady(function(){
             })
         });
 
-        /*
-        PMS.OrdersTab = PMS.System.Layout.getTabPanel().add({
+        PMS.System.Layout.getTabPanel().add({
             iconCls: 'orders-icon',
             closable: false,
-            xtype: 'PMS.Orderslog.List',
-            id: 'PMS.Orderslog.List'
+            xtype: 'PMS.Orders.List',
+            id: 'PMS.Orders.List'
         });
-        
-        PMS.System.Layout.getTabPanel().add({
-            iconCls: 'work_schd-icon',
-            xtype: 'PMS.Sales.Goods.List',
-            id: 'PMS.Sales.Goods.List'
-        });
-        */
         
         PMS.System.Layout.doLayout();
-        
-        if (Ext.isArray(xlib.messages) && xlib.messages.length > 0) {
-            Ext.each(xlib.messages, function(item) {
-                new PMS.Notice.Reader().show().loadData(item);
-            });
-        }
     });
 });

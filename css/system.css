@@ -24,6 +24,14 @@
     background: #FF9999;
 }
 
+.x-row-task-closed div {
+    color: grey;
+    text-decoration: line-through !important;
+}
+.x-row-task-expired div {
+    color: red;
+}
+
 .x-border-top {
     border-top: 1px solid #99BBE8 !important;
 }

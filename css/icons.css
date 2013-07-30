@@ -16,6 +16,9 @@
 .edit {
     background-image:url(/images/cog_edit.png) !important;
 }
+.check {
+    background-image:url(/images/ok_16x16.gif) !important;
+}
 .check-box-checked {
 	width: 19px; 
 	height: 16px;

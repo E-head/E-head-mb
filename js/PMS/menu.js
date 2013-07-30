@@ -44,7 +44,18 @@ PMS.Menu = function(params) {
 	        }
 	    }
 	}, ' ', ' ', '-', ' ', ' ', {
-        text: 'Товары',
+        text: 'Заказы',
+        iconCls: 'orders-icon',
+        handler: function() {
+            PMS.System.Layout.getTabPanel().add({
+                iconCls: 'orders-icon',
+                xtype: 'PMS.Orders.List',
+                id: 'PMS.Orders.List'
+            });
+        }
+    }, {
+        text: 'База товаров',
+        hidden: !acl.isView('admin'),
         iconCls: 'work_schd-icon',
         handler: function() {
             PMS.System.Layout.getTabPanel().add({

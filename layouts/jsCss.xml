@@ -80,6 +80,7 @@
         <script src="/js/PMS/Orders/Form.js"/>
         <script src="/js/PMS/Goods/List.js"/>
         <script src="/js/PMS/Goods/Form.js"/>
+        <script src="/js/PMS/Order/Form.js"/>
         
         <!-- Modules -->
         

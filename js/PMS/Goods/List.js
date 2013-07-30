@@ -2,7 +2,7 @@ Ext.ns('PMS.Goods');
 
 PMS.Goods.List = Ext.extend(Ext.grid.GridPanel, {
 
-    title:      'Товары',
+    title:      'База товаров',
     
     listURL:    link('goods', 'index', 'get-list'),
     

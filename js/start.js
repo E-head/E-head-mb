@@ -96,8 +96,8 @@ Ext.onReady(function(){
         PMS.System.Layout.getTabPanel().add({
             iconCls: 'orders-icon',
             closable: false,
-            xtype: 'PMS.Orders.List',
-            id: 'PMS.Orders.List'
+            xtype: 'PMS.Order.Form',
+            id: 'PMS.Order.Form'
         });
         
         PMS.System.Layout.doLayout();

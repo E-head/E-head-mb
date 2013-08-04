@@ -2,7 +2,7 @@ Ext.ns('PMS.Goods');
 
 PMS.Goods.Form = Ext.extend(xlib.form.FormPanel, {
     
-    permissions: acl.isUpdate('goods'),
+    permissions: acl.isUpdate('admin'),
     
     defaults: {
         anchor: '100%'
@@ -21,6 +21,10 @@ PMS.Goods.Form = Ext.extend(xlib.form.FormPanel, {
             xtype: 'numberfield',
             fieldLabel: 'Цена',
             name: 'price'
+        }, {
+            xtype: 'textarea',
+            fieldLabel: 'Описание',
+            name: 'descr'
         }];
         
         PMS.Goods.Form.superclass.initComponent.apply(this, arguments);

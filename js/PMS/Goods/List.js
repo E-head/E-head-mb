@@ -16,7 +16,7 @@ PMS.Goods.List = Ext.extend(Ext.grid.GridPanel, {
     
     loadMask: true,
 
-    permissions: acl.isUpdate('goods'),
+    permissions: acl.isUpdate('admin'),
     
     initComponent: function() {
         
@@ -28,7 +28,7 @@ PMS.Goods.List = Ext.extend(Ext.grid.GridPanel, {
             root: 'data',
             id: 'id',
             totalProperty: 'totalCount',
-            fields: ['id', 'name', 'price']
+            fields: ['id', 'name', 'price', 'descr']
         });
         
         this.sm = new Ext.grid.RowSelectionModel({singleSelect: true});
@@ -59,6 +59,10 @@ PMS.Goods.List = Ext.extend(Ext.grid.GridPanel, {
             header: 'Наименование',
             dataIndex: 'name',
             sortable: true,
+            width: 250
+        }, {
+            header: 'Описание',
+            dataIndex: 'descr',
             id: this.autoExpandColumn
         }, {
             header: 'Цена (р.)',

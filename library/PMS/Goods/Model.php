@@ -13,7 +13,8 @@ class PMS_Goods_Model
             '*'             => 'StringTrim'
         ), array(
             'name'          => array(array('StringLength', 1, 250), 'presence' => 'required'),
-            'price'         => array(array('Float', 'en'), 'presence' => 'required')
+            'price'         => array(array('Float', 'en'), 'presence' => 'required'),
+            'descr'         => array(array('StringLength', 0, 4096))
         ), $params);
 
         $response = new OSDN_Response();
@@ -38,7 +39,8 @@ class PMS_Goods_Model
         ), array(
             'id'            => array('Int', 'presence' => 'required'),
             'name'          => array(array('StringLength', 1, 250), 'presence' => 'required'),
-            'price'         => array(array('Float', 'en'), 'presence' => 'required')
+            'price'         => array(array('Float', 'en'), 'presence' => 'required'),
+            'descr'         => array(array('StringLength', 0, 4096))
         ), $params);
 
         $response = new OSDN_Response();

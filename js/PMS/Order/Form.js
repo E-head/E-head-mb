@@ -31,7 +31,7 @@ PMS.Order.Form = Ext.extend(Ext.Panel, {
                         '<div class="folio-desc">',
                             '<h3 style="color: #008837;">{name}</h3>',
                             '<p class="excerpt">{descr}</p>',
-                            '<div class="price">{price} р.</div>',
+                            '<div class="price">{price} р. / кг</div>',
                             '<div align="right" style="padding-right: 30px;">',
                             'Кол-во: <input type="text" id="{id}" ',
                             'style="width: 50px;"></div>',

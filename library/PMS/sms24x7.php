@@ -17,7 +17,7 @@ class sms24x7 {
 		$this->use_session = 1;
 		$this->format = $format;
 		$this->curl = curl_init();
-		curl_setopt($this->curl, CURLOPT_URL, 'https://api.sms24x7.ru/');
+		curl_setopt($this->curl, CURLOPT_URL, 'http://api.sms24x7.ru/');
 		curl_setopt($this->curl, CURLOPT_POST, True);
 		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, True);
 		// save cookies in local file

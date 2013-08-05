@@ -140,7 +140,7 @@ class Orders_IndexController extends OSDN_Controller_Action
                     ) );
                     return $respSMS;
     	        } catch (Exception $e) {
-                    print 'Ошибка: '.$e->getMessage()."\n";
+                    return $e->getMessage();
                 }
 
         	}

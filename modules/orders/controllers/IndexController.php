@@ -28,7 +28,7 @@ class Orders_IndexController extends OSDN_Controller_Action
         $response = $this->_class->make($this->_getAllParams());
         if ($response->isSuccess()) {
             $this->view->success = true;
-            $this->sendEmail($id);
+            $this->sendEmail($response->id);
         } else {
            $this->_collectErrors($response);
         }
@@ -62,7 +62,6 @@ class Orders_IndexController extends OSDN_Controller_Action
     	$data = $this->_getAllParams();
         $response = $this->_class->update($data);
         if ($response->isSuccess()) {
-    		$this->sendEmail($this->_getParam('id'));
             $this->view->success = true;
         } else {
            $this->_collectErrors($response);

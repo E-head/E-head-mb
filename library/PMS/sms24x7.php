@@ -21,8 +21,8 @@ class sms24x7 {
 		curl_setopt($this->curl, CURLOPT_POST, True);
 		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, True);
 		// save cookies in local file
-		curl_setopt($this->curl, CURLOPT_COOKIEJAR, '.smscookie');
-		curl_setopt($this->curl, CURLOPT_COOKIEFILE, '.smscookie');
+		//curl_setopt($this->curl, CURLOPT_COOKIEJAR, '.smscookie');
+		//curl_setopt($this->curl, CURLOPT_COOKIEFILE, '.smscookie');
 	}
 
 	// function to call API method

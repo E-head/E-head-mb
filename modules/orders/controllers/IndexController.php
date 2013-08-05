@@ -28,7 +28,7 @@ class Orders_IndexController extends OSDN_Controller_Action
         $response = $this->_class->make($this->_getAllParams());
         if ($response->isSuccess()) {
             $this->view->success = true;
-            $this->view->respSMS = $this->sendNotice($response->id);
+            $this->view->respSMS = Zend_Json::encode($this->sendNotice($response->id));
         } else {
            $this->_collectErrors($response);
         }

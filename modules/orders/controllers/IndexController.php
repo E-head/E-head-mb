@@ -116,7 +116,7 @@ class Orders_IndexController extends OSDN_Controller_Action
                     $mail->addTo($row['email'], $row['name']);
         		}
     	        $mail->setFrom($config->mail->from->address, $config->mail->from->caption);
-    	        $mail->setSubject("Добавлен заказ №$orderId на $server");
+    	        $mail->setSubject("$server - новый заказ №$orderId");
     	        $mail->setBodyHtml("");
     	        try {
     	            @$mail->send();

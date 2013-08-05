@@ -19,6 +19,19 @@ class Orders_IndexController extends OSDN_Controller_Action
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'update');
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'delete');
         $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'close');
+        $acl->isAllowed(OSDN_Acl_Privilege::UPDATE, 'make');
+    }
+
+
+    public function makeAction()
+    {
+        $response = $this->_class->make($this->_getAllParams());
+        if ($response->isSuccess()) {
+            $this->view->success = true;
+            $this->sendEmail($id);
+        } else {
+           $this->_collectErrors($response);
+        }
     }
 
 	public function getListAction()
@@ -88,13 +101,18 @@ class Orders_IndexController extends OSDN_Controller_Action
     	$accounts = new OSDN_Accounts();
     	$roles = new OSDN_Acl_Roles();
     	$roleId = $roles->alias2id('admin');
+
     	if ($roleId) {
-        	$response = $accounts->fetchByRole($roleId);
-        	if ($response->isSuccess()) {
+
+    	    $response = $accounts->fetchByRole($roleId);
+
+    	    if ($response->isSuccess()) {
+
+    	        // Send emails
+    	        $rows = $response->getRowset();
     	    	$config = Zend_Registry::get('config');
     	    	$server = $config->mail->SMTP;
     	        $mail = new Zend_Mail('UTF-8');
-    	        $rows = $response->getRowset();
                 foreach ($rows as $row) {
                     $mail->addTo($row['email'], $row['name']);
         		}
@@ -106,6 +124,9 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        } catch (Exception $e) {
     	            //echo $e->getMessage();
     	        }
+
+    	        // Send SMS
+
         	}
     	}
     }

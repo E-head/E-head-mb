@@ -3,12 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 30 2013 г., 03:55
+-- Время создания: Авг 06 2013 г., 01:14
 -- Версия сервера: 5.0.51a-community-nt
 -- Версия PHP: 5.2.5
 
 SET FOREIGN_KEY_CHECKS=0;
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -140,8 +139,21 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `price` double(10,2) NOT NULL,
+  `descr` text,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Дамп данных таблицы `goods`
+--
+
+INSERT INTO `goods` (`id`, `name`, `price`, `descr`) VALUES
+(1, 'Бурито с говядиной', 150.00, 'Мягкая пшеничная лепёшка (тортилья) с начинкой из говяжьего фарша, красной фасоли, томатов пилати и сыра.'),
+(2, 'Бурито с курицей', 150.00, 'Мягкая пшеничная лепёшка (тортилья) с начинкой из куриного фарша, красной фасоли, томатов пилати и сыра.'),
+(3, 'Кесадильяс c курицей', 88.00, 'Две тортильи с начинкой из нежной курицы с сыром. <br/><br/>'),
+(4, 'Тако с говядиной', 120.00, 'Кукурузная тортилья, наполненная говядиной, фасолью, овощами . В качестве приправы служит сыр.'),
+(5, 'Тако с курицей', 130.00, 'Кукурузная тортилья, наполненная нежной курицей, фасолью, овощами . В качестве приправы служит сыр.'),
+(6, 'Тако с рыбой', 130.00, 'Кукурузная тортилья, наполненная нежной рыбкой, фасолью, овощами . В качестве приправы служит сыр.');
 
 -- --------------------------------------------------------
 
@@ -216,5 +228,4 @@ ALTER TABLE `orders`
 ALTER TABLE `orders_goods`
   ADD CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`good_id`) REFERENCES `goods` (`id`),
   ADD CONSTRAINT `orders_goods_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 SET FOREIGN_KEY_CHECKS=1;

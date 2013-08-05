@@ -140,6 +140,9 @@ div.search-item {
 #gallery {
     padding: 50px;    
 }
+#gallery .field {
+	width: 50px;
+}
 #gallery .portfolio {
     width:100%;
     overflow:hidden;

@@ -53,7 +53,7 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
                     convert: function(v, record) {
                         return Ext.util.Format.date(
                             Date.parseDate(v, xlib.date.DATE_TIME_FORMAT_SERVER), 
-                            xlib.date.DATE_FORMAT
+                            xlib.date.DATE_TIME_FORMAT
                         );
                     }
                 },
@@ -64,7 +64,7 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
                     convert: function(v, record) {
                         return Ext.util.Format.date(
                             Date.parseDate(v, xlib.date.DATE_TIME_FORMAT_SERVER), 
-                            xlib.date.DATE_FORMAT
+                            xlib.date.DATE_TIME_FORMAT
                         );
                     }
                 },
@@ -75,7 +75,7 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
                     convert: function(v, record) {
                         return Ext.util.Format.date(
                             Date.parseDate(v, xlib.date.DATE_TIME_FORMAT_SERVER), 
-                            xlib.date.DATE_FORMAT
+                            xlib.date.DATE_TIME_FORMAT
                         );
                     }
                 }
@@ -86,7 +86,12 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
         
         var actions = new xlib.grid.Actions({
             autoWidth: true,
-            items: [function (g, rowIndex, e) {
+            items: [{
+                text: 'Подробности',
+                iconCls: 'prod_schd-icon',
+                handler: this.onPreview,
+                scope: this
+            }, function (g, rowIndex, e) {
                 
                 var record = g.getStore().getAt(rowIndex);
                 
@@ -95,18 +100,6 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
                         iconCls: 'check',
                         hidden: !acl.isView('admin'),
                         handler: g.onCloseOrder,
-                        scope: g
-                    } : false;
-                    
-            }, function (g, rowIndex, e) {
-                
-                var record = g.getStore().getAt(rowIndex);
-                
-                return Ext.isEmpty(record.get('closed')) ? {
-                        text: 'Редактировать',
-                        iconCls: 'edit',
-                        hidden: !g.permissions,
-                        handler: g.onUpdate,
                         scope: g
                     } : false;
                     
@@ -127,7 +120,7 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
         }, {
             header: 'Дата',
             dataIndex: 'ondate',
-            width: 100
+            width: 200
         }, {
             header: 'Заказчик',
             dataIndex: 'account_name',
@@ -135,11 +128,11 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
         }, {
             header: 'Создан',
             dataIndex: 'created',
-            width: 150
+            width: 200
         }, {
             header: 'Закрыт',
             dataIndex: 'closed',
-            width: 150
+            width: 200
         }];
         
         /*
@@ -152,7 +145,8 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
         });
         */
         this.plugins = [actions]; //, this.filtersPlugin];
-
+        
+        /*
         this.tbar = new Ext.Toolbar({
             items: [new Ext.Toolbar.Button({
                 text: 'Новый заказ',
@@ -165,6 +159,7 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
             ],
             scope: this
         });
+        */
         
         this.bbar = new xlib.PagingToolbar({
             //plugins: [this.filtersPlugin],
@@ -278,6 +273,31 @@ PMS.Orders.List = Ext.extend(Ext.grid.GridPanel, {
         
         formPanel.getForm().loadRecord(record);
         w.show();
+    },
+    
+    onPreview: function(g, rowIndex) {
+        
+        var record = g.getStore().getAt(rowIndex),
+            panel = new PMS.Order.Preview({
+                orderId: record.get('id'), 
+                onDate: record.get('ondate')
+            });
+        
+        var w = new Ext.Window({
+            title: 'Заказ №' + record.get('id'),
+            resizable: false,
+            width: 500,
+            modal: true,
+            items: [panel],
+            buttons: [{
+                text: 'OK',
+                handler: function() {
+                    w.close();
+                }
+            }]
+        });
+        w.show();
+        panel.getStore().load();
     }
 });
 

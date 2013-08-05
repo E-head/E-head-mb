@@ -151,4 +151,40 @@ class PMS_Orders_Model
         }
         return $response->addStatus(new PMS_Status($status));
     }
+
+    public function make(array $params)
+    {
+        $f = new OSDN_Filter_Input(array(
+            '*'             => 'StringTrim'
+        ), array(
+            'ondate'  => array(array('StringLength', 1, 20))
+        ), $params);
+
+        $response = new OSDN_Response();
+        $response->addInputStatus($f);
+        if ($response->hasNotSuccess()) {
+            return $response;
+        }
+        $id = $this->_table->insert(array(
+            'account_id' => OSDN_Accounts_Prototype::getId(),
+            'ondate'     => $f->ondate
+        ));
+
+        if (!$id) {
+            return $response->addStatus(new PMS_Status(PMS_Status::FAILURE));
+        }
+
+        $ordersGoods = new PMS_OrdersGoods_Table();
+        $data = Zend_Json::decode($params['data']);
+        foreach ($data as $row) {
+            $ordersGoods->insert(array(
+                'order_id'  => $id,
+                'good_id'   => $row['good_id'],
+                'number'    => $row['number']
+            ));
+        }
+
+        $response->addData('id', $id);
+        return $response->addStatus(new PMS_Status(PMS_Status::OK));
+    }
 }

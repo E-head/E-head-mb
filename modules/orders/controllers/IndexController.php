@@ -131,12 +131,17 @@ class Orders_IndexController extends OSDN_Controller_Action
 
     	        // Send SMS
     	        require_once "/library/sms24x7.php";
-    	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
-                print_r( $api->call_method('push_msg', array(
-                    'phones'        => json_encode($phones),
-                    'text'          => $text,
-                    'satellite_adv' => 'OBLIGATORY'
-                ) ) );
+    	        try {
+        	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
+                    print_r( $api->call_method('push_msg', array(
+                        'phones'        => json_encode($phones),
+                        'text'          => $text,
+                        'satellite_adv' => 'OBLIGATORY'
+                    ) ) );
+    	        } catch (Exception $e) {
+                    print 'Ошибка: '.$e->getMessage()."\n";
+                }
+
         	}
     	}
     }

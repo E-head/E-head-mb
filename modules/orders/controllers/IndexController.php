@@ -129,7 +129,7 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        try {
         	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
                     $respSMS = $api->call_method('push_msg', array(
-                        'phones'        => $phone,
+                        'phone'         => $phone,
                         'text'          => $text,
                         'satellite_adv' => 'OBLIGATORY'
                     ) );

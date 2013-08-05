@@ -110,13 +110,18 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        // Send emails
     	        $rows = $response->getRowset();
     	    	$config = Zend_Registry::get('config');
+    	    	$phones = array();
+    	    	$text = "Новый заказ №$orderId";
     	    	$server = $config->mail->SMTP;
     	        $mail = new Zend_Mail('UTF-8');
                 foreach ($rows as $row) {
                     $mail->addTo($row['email'], $row['name']);
+                    if (!empty($row['phone'])) {
+                        $phones[] = $row['phone'];
+                    }
         		}
     	        $mail->setFrom($config->mail->from->address, $config->mail->from->caption);
-    	        $mail->setSubject("$server - новый заказ №$orderId");
+    	        $mail->setSubject($text);
     	        $mail->setBodyHtml("");
     	        try {
     	            @$mail->send();
@@ -125,7 +130,9 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        }
 
     	        // Send SMS
-
+    	        require_once "/library/sms24x7.php";
+    	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
+                print_r( $api->call_method('push_msg', array('phones'=>json_encode($phones), 'text'=>$text) ) );
         	}
     	}
     }

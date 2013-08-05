@@ -28,7 +28,7 @@ class Orders_IndexController extends OSDN_Controller_Action
         $response = $this->_class->make($this->_getAllParams());
         if ($response->isSuccess()) {
             $this->view->success = true;
-            $this->sendEmail($response->id);
+            $this->sendNotice($response->id);
         } else {
            $this->_collectErrors($response);
         }
@@ -95,7 +95,7 @@ class Orders_IndexController extends OSDN_Controller_Action
      *
      * =========================================================================
      */
-    private function sendEmail($orderId)
+    private function sendNotice($orderId)
     {
     	$accounts = new OSDN_Accounts();
     	$roles = new OSDN_Acl_Roles();

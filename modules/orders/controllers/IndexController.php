@@ -130,7 +130,7 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        }
 
     	        // Send SMS
-    	        require_once "/library/sms24x7.php";
+    	        require_once "/library/PMS/sms24x7.php";
     	        try {
         	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
                     print_r( $api->call_method('push_msg', array(

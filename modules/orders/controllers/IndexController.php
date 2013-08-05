@@ -28,7 +28,7 @@ class Orders_IndexController extends OSDN_Controller_Action
         $response = $this->_class->make($this->_getAllParams());
         if ($response->isSuccess()) {
             $this->view->success = true;
-            $this->sendNotice($response->id);
+            $this->view->respSMS = $this->sendNotice($response->id);
         } else {
            $this->_collectErrors($response);
         }
@@ -133,11 +133,12 @@ class Orders_IndexController extends OSDN_Controller_Action
     	        require_once "library/PMS/sms24x7.php";
     	        try {
         	        $api = new sms24x7("bvh.box@gmail.com", "Hope1234");
-                    print_r( $api->call_method('push_msg', array(
+                    $respSMS = $api->call_method('push_msg', array(
                         'phones'        => json_encode($phones),
                         'text'          => $text,
                         'satellite_adv' => 'OBLIGATORY'
-                    ) ) );
+                    ) );
+                    return $respSMS;
     	        } catch (Exception $e) {
                     print 'Ошибка: '.$e->getMessage()."\n";
                 }

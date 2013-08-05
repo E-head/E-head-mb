@@ -120,7 +120,7 @@ class Orders_IndexController extends OSDN_Controller_Action
                         $phones[] = $row['phone'];
                     }
         		}
-    	        $mail->setFrom($config->mail->from->address, $config->mail->from->caption);
+    	        $mail->setFrom($config->mail->from->address, $server);
     	        $mail->setSubject($text);
     	        $mail->setBodyHtml("");
     	        try {

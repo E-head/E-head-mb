@@ -14,7 +14,7 @@ class IndexController extends OSDN_Controller_Action
     {
 
         if (!OSDN_Accounts_Prototype::isAuthenticated()) {
-            $this->_redirect('/index/login');
+            $this->_redirect('/default/index/login');
         }
 
     }

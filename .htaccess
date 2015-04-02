@@ -13,6 +13,6 @@ RewriteBase /
 RewriteRule \.(js|jsb|ico|gif|jpg|png|css|pdf|htm|xml|lpk|cab)$ - [L,NC]
 RewriteRule ^setup - [L,NC]
 RewriteRule ^files - [L,NC]
-# Hide .SVN Folders
-RewriteRule ^(.*/)*\.svn/ / [F,L]
+# Hide .git Folder
+RewriteRule ^(.*/)*\.git/ / [F,L]
 RewriteRule .* index.php
